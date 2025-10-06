@@ -12,7 +12,7 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <Image 
-              src="/logos/logo.png" 
+              src="/logos/logo-mindy.png" 
               alt="Mindy Coding Logo"
               width={60}
               height={60}
@@ -60,18 +60,17 @@ export default function Header() {
             </Button>
 
             {/* Đăng ký - Outline Button */}
-            <Button 
+            <Button asChild
               variant="outline" 
               className="px-4 py-2 text-sm font-medium border-gray-300 text-gray-700 hover:bg-gray-50"
             >
-              Đăng ký
+              <Link href="/register1">Đăng ký</Link>
             </Button>
 
             {/* Đăng nhập - Default/Primary Button */}
-            <Button 
-              className="px-4 py-2 text-sm font-medium bg-primary hover:bg-primary/90 text-white"
+            <Button asChild className="px-4 py-2 text-sm font-medium bg-primary hover:bg-primary/90 text-white"
             >
-              Đăng nhập
+              <Link href="/login" >Đăng nhập</Link>
             </Button>
           </div>
 

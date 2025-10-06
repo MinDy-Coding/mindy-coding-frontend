@@ -15,7 +15,7 @@ export default function CardLesson() {
                 {/* Logo */}
                           <div className="flex items-center">
                             <Image 
-                              src="/logos/logo.png" 
+                              src="/logos/logo-mindy.png" 
                               alt="Mindy Coding Logo"
                               width={60}
                               height={60}

@@ -1,10 +1,6 @@
 import React from 'react'
+import HomePage from '@/app/(main)/homepage/page' 
 
-export default function page() {
-  return (
-    <div>page
-        <link rel="icon" href="/logos/logo-mindy.png" type="image/png"></link>
-        <h1>KHỞI ĐẦU Ở MIN - BÙNG NỔ Ở MAX DẠY THÊM VỀ CÁC MÔN HỌC LẬP TRÌNH</h1>
-    </div>
-  )
+export default function RootPage() {
+  return <HomePage />
 }

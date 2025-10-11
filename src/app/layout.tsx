@@ -1,14 +1,11 @@
 import type { Metadata } from "next"
-import Header from '@/components/layouts/Header'
-import Footer from '@/components/layouts/Footer'
 import "./globals.css"
-
 
 export const metadata: Metadata = {
   title: "MinDy Coding",
-  description: "QuanhPam",
+  description: "Nền tảng học lập trình hàng đầu",
   icons: {
-    icon: "/logos/logo-mindy.png",          
+    icon: "/logos/logo-mindy.png",
   },
 }
 
@@ -18,11 +15,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="vi">
       <body>
-         
         {children}
-        
       </body>
     </html>
   )

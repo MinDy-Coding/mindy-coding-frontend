@@ -177,27 +177,7 @@ export default function ClassesManagementPage() {
         </CardContent>
       </Card>
 
-      {/* Additional Management */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-lg font-semibold">Thêm quản lý môn học</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-medium text-gray-900 mb-3">Thêm chi tiết lớp học, góm</h4>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li>• Số liệu thống kê</li>
-                  <li>• Danh sách học viên</li>
-                  <li>• Danh sách giáo dịch</li>
-                  <li>• Danh sách tài liệu</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+
     </div>
   )
 }

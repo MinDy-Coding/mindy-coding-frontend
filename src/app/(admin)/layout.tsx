@@ -4,10 +4,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
-import { 
+import {
   LayoutDashboard,
   Users,
   BookOpen,
+  Layers,
   CreditCard,
   FileText,
   Settings,
@@ -30,11 +31,11 @@ export default function AdminLayout({
   // Hàm tạo CSS classes cho navigation links
   const getNavLinkClasses = (path: string) => {
     const baseClasses = "flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors font-medium"
-    
+
     if (isActive(path)) {
       return `${baseClasses} bg-primary/10 text-primary` // Trạng thái active
     }
-    
+
     return `${baseClasses} text-gray-700 hover:bg-gray-100` // Trạng thái bình thường
   }
 
@@ -46,8 +47,8 @@ export default function AdminLayout({
         <div className="flex items-center justify-between">
           {/* Logo và tiêu đề */}
           <div className="flex items-center space-x-4">
-            <Image 
-              src="/logos/logo.png" 
+            <Image
+              src="/logos/logo.png"
               alt="MinDy Coding Logo"
               width={40}
               height={40}
@@ -59,8 +60,8 @@ export default function AdminLayout({
           {/* Các nút action ở header */}
           <div className="flex items-center space-x-4">
             {/* Nút về trang chủ */}
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="sm"
               className="flex items-center space-x-2"
               asChild
@@ -110,6 +111,15 @@ export default function AdminLayout({
             >
               <BookOpen className="w-5 h-5" />
               <span>Quản lý lớp học</span>
+            </Link>
+
+            {/* Link Quản lý môn học */}
+            <Link
+              href="/subject-managerment"
+              className={getNavLinkClasses('/subject-managerment')}
+            >
+              <Layers className="w-5 h-5" />
+              <span>Quản lý môn học</span>
             </Link>
 
             {/* Link Thanh toán & Ưu đãi */}

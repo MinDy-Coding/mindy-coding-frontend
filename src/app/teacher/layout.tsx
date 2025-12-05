@@ -92,7 +92,7 @@ export default function TeacherLayout({
           <nav className="p-4 space-y-2">
             {/* Teaching Schedule */}
             <Link
-              href="/teaching-schedule"
+              href="/teacher/teaching-schedule"
               className={getNavLinkClasses("/teaching-schedule")}
             >
               <Calendar className="w-5 h-5" />
@@ -101,7 +101,7 @@ export default function TeacherLayout({
 
             {/* My Classes */}
             <Link
-              href="/my-classes"
+              href="/teacher/my-classes"
               className={getNavLinkClasses("/my-classes")}
             >
               <Users className="w-5 h-5" />
@@ -109,19 +109,19 @@ export default function TeacherLayout({
             </Link>
 
             {/* Subjects */}
-            <Link href="/subjects" className={getNavLinkClasses("/subjects")}>
+            <Link href="/teacher/subjects" className={getNavLinkClasses("/subjects")}>
               <BookOpen className="w-5 h-5" />
               <span>Subjects</span>
             </Link>
 
             {/* Absence */}
-            <Link href="/absence-request" className={getNavLinkClasses("/absence-request")}>
+            <Link href="/teacher/absence-request" className={getNavLinkClasses("/absence-request")}>
               <Layers className="w-5 h-5" />
               <span>Absence</span>
             </Link>
 
             {/* Dashboard */}
-            <Link href="/dashboard-teacher" className={getNavLinkClasses("/dashboard-teacher")}>
+            <Link href="/teacher/dashboard-teacher" className={getNavLinkClasses("/dashboard-teacher")}>
               <LayoutDashboard className="w-5 h-5" />
               <span>Dashboard</span>
             </Link>

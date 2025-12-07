@@ -1,25 +1,26 @@
-import React from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Badge } from '@/components/ui/badge'
-import { 
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
-import { 
-  Users, 
-  GraduationCap, 
-  User, 
+} from "@/components/ui/select";
+import {
+  Users,
+  GraduationCap,
+  User,
   UserX,
   Plus,
   Search,
   ChevronLeft,
-  ChevronRight
-} from 'lucide-react'
+  ChevronRight,
+} from "lucide-react";
+import Link from "next/link";
 
 export default function UsersManagementPage() {
   const users = [
@@ -30,7 +31,7 @@ export default function UsersManagementPage() {
       role: "Học viên",
       status: "active",
       joinDate: "15/01/2024",
-      lastLogin: "2 giờ trước"
+      lastLogin: "2 giờ trước",
     },
     {
       name: "Lương Gia Hào",
@@ -39,7 +40,7 @@ export default function UsersManagementPage() {
       role: "Giảng viên",
       status: "active",
       joinDate: "15/01/2024",
-      lastLogin: "2 giờ trước"
+      lastLogin: "2 giờ trước",
     },
     {
       name: "Lương Gia Hào",
@@ -48,7 +49,7 @@ export default function UsersManagementPage() {
       role: "Nhân viên",
       status: "active",
       joinDate: "15/01/2024",
-      lastLogin: "2 giờ trước"
+      lastLogin: "2 giờ trước",
     },
     {
       name: "Lương Gia Hào",
@@ -57,7 +58,7 @@ export default function UsersManagementPage() {
       role: "Học viên",
       status: "inactive",
       joinDate: "15/01/2024",
-      lastLogin: "30 ngày trước"
+      lastLogin: "30 ngày trước",
     },
     {
       name: "Lương Gia Hào",
@@ -66,31 +67,51 @@ export default function UsersManagementPage() {
       role: "Giảng viên",
       status: "active",
       joinDate: "15/01/2024",
-      lastLogin: "2 giờ trước"
-    }
-  ]
+      lastLogin: "2 giờ trước",
+    },
+  ];
 
   const getRoleBadge = (role: string) => {
     switch (role) {
-      case 'Học viên':
-        return <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-100">{role}</Badge>
-      case 'Giảng viên':
-        return <Badge className="bg-green-100 text-green-700 hover:bg-green-100">{role}</Badge>
-      case 'Nhân viên':
-        return <Badge className="bg-purple-100 text-purple-700 hover:bg-purple-100">{role}</Badge>
+      case "Học viên":
+        return (
+          <Badge className="bg-blue-100 text-blue-700 hover:bg-blue-100">
+            {role}
+          </Badge>
+        );
+      case "Giảng viên":
+        return (
+          <Badge className="bg-green-100 text-green-700 hover:bg-green-100">
+            {role}
+          </Badge>
+        );
+      case "Nhân viên":
+        return (
+          <Badge className="bg-purple-100 text-purple-700 hover:bg-purple-100">
+            {role}
+          </Badge>
+        );
       default:
-        return <Badge variant="secondary">{role}</Badge>
+        return <Badge variant="secondary">{role}</Badge>;
     }
-  }
+  };
 
   const getStatusBadge = (status: string) => {
-    if (status === 'active') {
-      return <Badge className="bg-green-100 text-green-700 hover:bg-green-100">Hoạt động</Badge>
-    } else if (status === 'inactive') {
-      return <Badge className="bg-red-100 text-red-700 hover:bg-red-100">Không hoạt động</Badge>
+    if (status === "active") {
+      return (
+        <Badge className="bg-green-100 text-green-700 hover:bg-green-100">
+          Hoạt động
+        </Badge>
+      );
+    } else if (status === "inactive") {
+      return (
+        <Badge className="bg-red-100 text-red-700 hover:bg-red-100">
+          Không hoạt động
+        </Badge>
+      );
     }
-    return <Badge variant="secondary">{status}</Badge>
-  }
+    return <Badge variant="secondary">{status}</Badge>;
+  };
 
   return (
     <div className="space-y-6">
@@ -98,7 +119,9 @@ export default function UsersManagementPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Quản lý User</h1>
-          <p className="text-gray-600 mt-1">Quản lý tất cả người dùng trong hệ thống</p>
+          <p className="text-gray-600 mt-1">
+            Quản lý tất cả người dùng trong hệ thống
+          </p>
         </div>
         <Button className="bg-primary hover:bg-primary/90 text-white">
           <Plus className="w-4 h-4 mr-2" />
@@ -112,7 +135,9 @@ export default function UsersManagementPage() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Tổng số User</p>
+                <p className="text-sm font-medium text-gray-600">
+                  Tổng số User
+                </p>
                 <p className="text-3xl font-bold text-primary">270</p>
                 <p className="text-sm text-green-600 mt-1">
                   +12% <span className="text-gray-500">so với tháng trước</span>
@@ -180,8 +205,12 @@ export default function UsersManagementPage() {
       {/* User List */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-lg font-semibold">Danh sách User</CardTitle>
-          <p className="text-sm text-gray-600">Tìm kiếm và lọc user theo vai trò</p>
+          <CardTitle className="text-lg font-semibold">
+            Danh sách User
+          </CardTitle>
+          <p className="text-sm text-gray-600">
+            Tìm kiếm và lọc user theo vai trò
+          </p>
         </CardHeader>
         <CardContent>
           {/* Search and Filter */}
@@ -211,31 +240,46 @@ export default function UsersManagementPage() {
             <table className="w-full">
               <thead>
                 <tr className="border-b border-gray-200">
-                  <th className="text-left py-3 px-4 font-semibold text-gray-700">Họ tên</th>
-                  <th className="text-left py-3 px-4 font-semibold text-gray-700">Email / SĐT</th>
-                  <th className="text-left py-3 px-4 font-semibold text-gray-700">Vai trò</th>
-                  <th className="text-left py-3 px-4 font-semibold text-gray-700">Trạng thái</th>
-                  <th className="text-left py-3 px-4 font-semibold text-gray-700">Ngày tham gia</th>
-                  <th className="text-left py-3 px-4 font-semibold text-gray-700">Đăng nhập cuối</th>
-                  <th className="text-left py-3 px-4 font-semibold text-gray-700">Thao tác</th>
+                  <th className="text-left py-3 px-4 font-semibold text-gray-700">
+                    Họ tên
+                  </th>
+                  <th className="text-left py-3 px-4 font-semibold text-gray-700">
+                    Email / SĐT
+                  </th>
+                  <th className="text-left py-3 px-4 font-semibold text-gray-700">
+                    Vai trò
+                  </th>
+                  <th className="text-left py-3 px-4 font-semibold text-gray-700">
+                    Trạng thái
+                  </th>
+                  <th className="text-left py-3 px-4 font-semibold text-gray-700">
+                    Ngày tham gia
+                  </th>
+                  <th className="text-left py-3 px-4 font-semibold text-gray-700">
+                    Đăng nhập cuối
+                  </th>
+                  <th className="text-left py-3 px-4 font-semibold text-gray-700">
+                    Thao tác
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {users.map((user, index) => (
-                  <tr key={index} className="border-b border-gray-100 hover:bg-gray-50">
+                  <tr
+                    key={index}
+                    className="border-b border-gray-100 hover:bg-gray-50"
+                  >
                     <td className="py-4 px-4">
-                      <div className="font-medium text-gray-900">{user.name}</div>
+                      <div className="font-medium text-gray-900">
+                        {user.name}
+                      </div>
                     </td>
                     <td className="py-4 px-4">
                       <div className="text-sm text-gray-900">{user.email}</div>
                       <div className="text-sm text-gray-500">{user.phone}</div>
                     </td>
-                    <td className="py-4 px-4">
-                      {getRoleBadge(user.role)}
-                    </td>
-                    <td className="py-4 px-4">
-                      {getStatusBadge(user.status)}
-                    </td>
+                    <td className="py-4 px-4">{getRoleBadge(user.role)}</td>
+                    <td className="py-4 px-4">{getStatusBadge(user.status)}</td>
                     <td className="py-4 px-4 text-sm text-gray-900">
                       {user.joinDate}
                     </td>
@@ -244,13 +288,21 @@ export default function UsersManagementPage() {
                     </td>
                     <td className="py-4 px-4">
                       <div className="flex space-x-2">
-                        <Button variant="outline" size="sm">
-                          Xem chi tiết
+                        <Button variant="outline" size="sm" asChild>
+                          <Link href={`/users-management/${index}`}>
+                            Xem chi tiết
+                          </Link>
                         </Button>
-                        <Button variant="outline" size="sm">
-                          Chỉnh sửa
+                        <Button variant="outline" size="sm" asChild>
+                          <Link href={`/users-management/${index}`}>
+                            Chỉnh sửa
+                          </Link>
                         </Button>
-                        <Button variant="outline" size="sm" className="text-red-600 hover:text-red-700">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="text-red-600 hover:text-red-700"
+                        >
                           Đóng lớp
                         </Button>
                       </div>
@@ -263,9 +315,7 @@ export default function UsersManagementPage() {
 
           {/* Pagination */}
           <div className="flex items-center justify-between mt-6">
-            <p className="text-sm text-gray-600">
-              Hiển thị 5 / 5 user
-            </p>
+            <p className="text-sm text-gray-600">Hiển thị 5 / 5 user</p>
             <div className="flex items-center space-x-2">
               <Button variant="outline" size="sm" disabled>
                 <ChevronLeft className="w-4 h-4 mr-1" />
@@ -280,5 +330,5 @@ export default function UsersManagementPage() {
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

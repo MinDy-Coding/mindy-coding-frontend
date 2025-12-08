@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -19,28 +20,30 @@ export default function UserProfilePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-cyan-100/40 via-cyan-50/20 to-white py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-[#96c4cd]/30 via-[#96c4cd]/10 via-30% to-white py-12 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Hồ sơ cá nhân</h1>
-          <Button className="bg-cyan-400 hover:bg-cyan-500 text-white rounded-full px-6">
-            Chỉnh sửa
-          </Button>
+          <Link href="/user/profile/edit">
+            <Button className="rounded-full px-6">
+              Chỉnh sửa
+            </Button>
+          </Link>
         </div>
 
         {/* Profile Card */}
         <Card className="border border-gray-900 rounded-3xl shadow-lg overflow-hidden">
           <CardContent className="p-0">
             {/* Background gradient */}
-            <div className="bg-gradient-to-b from-cyan-200/60 via-cyan-100/30 to-transparent h-32"></div>
+            <div className="bg-gradient-to-b from-[#96c4cd]/40 via-[#96c4cd]/15 to-transparent h-32"></div>
             
             {/* Avatar section */}
             <div className="relative px-8 pb-8">
               {/* Avatar */}
               <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
                 <div className="w-32 h-32 rounded-full bg-white p-2 shadow-lg">
-                  <div className="w-full h-full rounded-full bg-gradient-to-br from-cyan-100 to-blue-100 flex items-center justify-center overflow-hidden">
+                  <div className="w-full h-full rounded-full bg-gradient-to-br from-[#96c4cd]/30 to-[#96c4cd]/60 flex items-center justify-center overflow-hidden">
                     <Image 
                       src={userProfile.avatar}
                       alt="Avatar"

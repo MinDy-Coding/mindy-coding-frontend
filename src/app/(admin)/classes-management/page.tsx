@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -70,10 +71,12 @@ export default function ClassesManagementPage() {
           <h1 className="text-3xl font-bold text-gray-900">Quản lý Lớp học</h1>
           <p className="text-gray-600 mt-1">Xem và quản lý tất cả lớp học</p>
         </div>
-        <Button className="bg-primary hover:bg-primary/90 text-white">
-          <Plus className="w-4 h-4 mr-2" />
-          Tạo lớp
-        </Button>
+        <Link href="/classes-management/create-class">
+          <Button className="bg-primary hover:bg-primary/90 text-white">
+            <Plus className="w-4 h-4 mr-2" />
+            Tạo lớp
+          </Button>
+        </Link>
       </div>
 
       {/* Search and Filter */}

@@ -56,7 +56,8 @@ export default function Header() {
               variant="secondary" 
               className="px-4 py-2 text-sm font-medium"
             >
-              Tra cứu thông tin
+              <Link href="/checkRegistrationInformation">Tra cứu thông tin</Link>
+              
             </Button>
 
             {/* Đăng ký - Outline Button */}

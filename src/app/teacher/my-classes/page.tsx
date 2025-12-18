@@ -139,7 +139,7 @@ export default function MyClassesPage() {
       </div>
 
       {/* Search and Filter */}
-      <Card>
+      <Card className="border-gray-300">
         <CardHeader>
           <CardTitle className="text-lg font-semibold">Tìm kiếm lớp học</CardTitle>
           <p className="text-sm text-gray-600">Tìm kiếm và lọc user theo vai trò</p>

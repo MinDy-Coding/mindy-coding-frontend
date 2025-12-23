@@ -7,7 +7,7 @@ import { useParams } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { CheckCircle, Circle, Clock, MapPin, CalendarRange, Users, FileUp } from "lucide-react"
+import { CheckCircle, Circle, MapPin, CalendarRange, FileUp } from "lucide-react"
 
 type Lesson = {
   title: string
@@ -271,12 +271,6 @@ export default function SubjectDetailPage() {
 
           <div className="mt-4 flex flex-wrap gap-6 text-sm text-gray-700">
             <span className="flex items-center gap-2">
-              <Users className="w-4 h-4 text-gray-400" /> {detail.students} học viên
-            </span>
-            <span className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-gray-400" /> {detail.schedule}
-            </span>
-            <span className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-gray-400" /> {detail.room}
             </span>
             <span className="flex items-center gap-2">
@@ -360,9 +354,9 @@ export default function SubjectDetailPage() {
                 {detail.materials.map((item, idx) => (
                   <div
                     key={`${item.title}-${idx}`}
-                    className="border border-gray-200 rounded-xl p-3 flex items-center justify-between gap-3"
+                    className="border border-gray-200 rounded-xl p-3 flex flex-wrap items-center gap-3"
                   >
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 flex-1 min-w-[250px]">
                       <div className="w-12 h-12 rounded-xl bg-[#B5D3DA]" />
                       <div>
                         <p className="font-semibold text-gray-900">{item.title}</p>
@@ -373,7 +367,7 @@ export default function SubjectDetailPage() {
                         </div>
                       </div>
                     </div>
-                    <Button variant="outline" size="sm">
+                    <Button variant="outline" size="sm" className="ml-auto">
                       Tải xuống
                     </Button>
                   </div>

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Users, Clock, BookOpen, DollarSign } from 'lucide-react'
+import { BookOpen, DollarSign, CheckCircle, Laptop } from 'lucide-react'
 
 type SubjectLevel = 'cơ bản' | 'nâng cao' | 'trực tuyến'
 
@@ -12,10 +12,10 @@ type Subject = {
   code: string
   level: SubjectLevel
   description: string
-  durationHours: number
   sessions: number
-  students: number
   price: string
+  requirement: string
+  format: string
 }
 
 const subjects: Subject[] = [
@@ -24,50 +24,50 @@ const subjects: Subject[] = [
     code: 'JAVA101',
     level: 'cơ bản',
     description: 'Khóa học cung cấp kiến thức nền tảng về lập trình Java',
-    durationHours: 40,
     sessions: 20,
-    students: 25,
-    price: '5.000.000 VND'
+    price: '5.000.000 VND',
+    requirement: 'Không cần nền tảng',
+    format: 'Online / Offline'
   },
   {
     name: 'Lập trình JAVA cơ bản',
     code: 'JAVA102',
     level: 'cơ bản',
     description: 'Khóa học cung cấp kiến thức nền tảng về lập trình Java',
-    durationHours: 40,
     sessions: 20,
-    students: 25,
-    price: '5.000.000 VND'
+    price: '5.000.000 VND',
+    requirement: 'Không cần nền tảng',
+    format: 'Online / Offline'
   },
   {
     name: 'Lập trình JAVA mở rộng',
     code: 'JAVA102',
     level: 'cơ bản',
     description: 'Ôn tập nền tảng và thực hành thêm cấu trúc dữ liệu cơ bản',
-    durationHours: 42,
     sessions: 21,
-    students: 22,
-    price: '5.200.000 VND'
+    price: '5.200.000 VND',
+    requirement: 'Không cần nền tảng',
+    format: 'Online / Offline'
   },
   {
     name: 'Lập trình Java nâng cao',
     code: 'JAVA201',
     level: 'nâng cao',
     description: 'Chuyên sâu về OOP, Spring Boot và triển khai dự án thực tế',
-    durationHours: 48,
     sessions: 24,
-    students: 18,
-    price: '6.500.000 VND'
+    price: '6.500.000 VND',
+    requirement: 'Không cần nền tảng',
+    format: 'Online / Offline'
   },
   {
     name: 'Lập trình Java trực tuyến',
     code: 'JAVA101-OL',
     level: 'trực tuyến',
     description: 'Phiên bản online với mentor, bài tập và buổi live hàng tuần',
-    durationHours: 36,
     sessions: 18,
-    students: 32,
-    price: '4.500.000 VND'
+    price: '4.500.000 VND',
+    requirement: 'Không cần nền tảng',
+    format: 'Online / Offline'
   }
 ]
 
@@ -101,36 +101,30 @@ export default function SubjectPage() {
             <CardContent className="space-y-4">
               <p className="text-sm text-gray-700">{subject.description}</p>
 
-              <div className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm text-gray-600">
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-gray-400" />
-                  <span>{subject.durationHours} giờ</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Users className="w-4 h-4 text-gray-400" />
-                  <span>{subject.students} học viên</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <BookOpen className="w-4 h-4 text-gray-400" />
-                  <span>{subject.sessions} buổi học</span>
-                </div>
-                <div className="flex items-center gap-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 text-sm text-gray-700">
+                <div className="flex items-center gap-2 font-semibold">
                   <DollarSign className="w-4 h-4 text-gray-400" />
                   <span>{subject.price}</span>
                 </div>
+                <div className="flex items-center gap-2 font-semibold">
+                  <BookOpen className="w-4 h-4 text-gray-400" />
+                  <span>{subject.sessions} buổi học</span>
+                </div>
+                <div className="flex items-center gap-2 font-semibold">
+                  <CheckCircle className="w-4 h-4 text-gray-400" />
+                  <span>Yêu cầu: {subject.requirement}</span>
+                </div>
+                <div className="flex items-center gap-2 font-semibold">
+                  <Laptop className="w-4 h-4 text-gray-400" />
+                  <span>Hình thức: {subject.format}</span>
+                </div>
               </div>
 
-              <div className="mt-2 border-t border-[#96C4CD] pt-4 flex items-center justify-end gap-3">
-                <Button variant="outline" className="px-5" asChild>
+              <div className="mt-2 border-t border-[#96C4CD] pt-4 flex items-center justify-end">
+                <Button variant="outline" size="lg" className="rounded-xl px-6" asChild>
                   <Link href={`/teacher/subjects/${subject.code}`}>
                     chi tiết
                   </Link>
-                </Button>
-                <Button variant="outline" className="px-5">
-                  Sửa
-                </Button>
-                <Button variant="outline" className="px-5">
-                  +
                 </Button>
               </div>
             </CardContent>

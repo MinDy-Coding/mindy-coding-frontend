@@ -179,15 +179,9 @@ export default function SubjectManagerPage() {
 
               <div className="mt-2 border-t border-[#96C4CD] pt-4 flex items-center justify-end gap-3">
                 <Button variant="outline" className="px-5" asChild>
-                  <Link href={`/admin/subject-managerment/${subject.code}`}>
+                  <Link href={`/subject-managerment/${subject.code}`}>
                     chi tiết
                   </Link>
-                </Button>
-                <Button variant="outline" className="px-5">
-                  Sửa
-                </Button>
-                <Button variant="outline" className="px-5">
-                  +
                 </Button>
               </div>
             </CardContent>
